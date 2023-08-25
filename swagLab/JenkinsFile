@@ -1,0 +1,37 @@
+pipeline{
+    agent any
+tools{
+    maven 'local_maven'
+}
+
+    stages{
+
+ 
+
+    stage('SCM Checkout'){
+
+ 
+
+    steps{
+    git branch: 'master', url: 'https://github.com/LdKishan/swagLab2.git'
+    }
+    } 
+stage('Build'){
+
+ 
+
+    steps{
+    sh 'mvn clean package'
+    }
+    } 
+stage ('Deploy to Tomcat Server'){
+            steps{
+            deploy adapters: [tomcat9(credentialsId: 'tomi', path: '', url: 'http://54.208.100.106:9090/')], contextPath: null, war: '**/*.war'
+            }
+
+ 
+
+        }
+
+    }
+    }
