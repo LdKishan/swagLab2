@@ -3,6 +3,7 @@
   <groupId>swagLab</groupId>
   <artifactId>swagLab</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
   <dependencies>  
 	  <dependency>
     <groupId>org.seleniumhq.selenium</groupId>
